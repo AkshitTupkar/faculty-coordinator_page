@@ -1,27 +1,42 @@
 body {
+    position: relative; /* Add this to make absolute positioning work */
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(270deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%);
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #Faculty-Coordinator {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; /* Bold for headings */
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Default font size for mobile */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 15vh;
 }
 
+
 #verticle-line {
     border-right: 1px solid white;
-    height: 100%;
-    position: fixed;
+    height: 100vh;
+    position: absolute;
     top: 14%;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
+}
+/* Add quotation mark at the top-left of the vertical line */
+#verticle-line::before {
+    content: '"'; /* Add the quotation mark */
+    position: relative;
+    left: -30px; /* Adjust position to the left of the vertical line */
+    top: 0; /* Position at the top of the vertical line */
+    font-size: 3rem; /* Adjust size of the quotation mark */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
 }
 
 #horizontal-line {
@@ -33,6 +48,18 @@ body {
     z-index: -1;
 }
 
+/* Add quotation mark between the image and horizontal line */
+#horizontal-line::before {
+    content: '"';
+    position: absolute;
+    left: -20px; /* Adjust position to the left of the horizontal line */
+    top: -10px; /* Adjust position above the horizontal line */
+    font-size: 2rem; /* Adjust size of the quotation mark */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
 #circle-shape-example {
     display: flex;
     justify-content: center;
@@ -41,17 +68,19 @@ body {
 }
 
 #circle-shape-example .curve {
-    width: 30%;
-    max-width: 250px;
-    height: auto;
+    width: 50%; /* Increase from 30% to 40% (adjust as needed) */
+    max-width: 300px; /* Increase the maximum width */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 50%;
     filter: drop-shadow(0px 0px 64px rgba(32, 16, 54, 0.5));
 }
 
 #textbox {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Regular for body text */
     color: rgba(245, 245, 245, 0.892);
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Default font size for mobile */
     word-spacing: 3px;
     max-width: 90%;
     margin: 0 auto;
@@ -81,11 +110,23 @@ body {
         display: block; /* Show the horizontal line */
         top: calc(15vh + 30vh); /* Position it below the image */
     }
-
-    body {
-        background: linear-gradient(0deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%); /* Change gradient direction */
+        /* Hide the vertical line's quotation mark on smaller screens */
+        #verticle-line::before {
+            display: none;
+        }
+    
+        /* Show the horizontal line's quotation mark on smaller screens */
+        #horizontal-line::before {
+            display: block;
+        }
     }
-}
+    #circle-shape-example .curve {
+            width: 50%; /* Larger size for smaller screens */
+            max-width: 300px; /* Adjust max-width for smaller screens */
+        }
+    body {
+        background: linear-gradient(0deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%);
+        }
 
 /* Media query for screens between 765px and 1024px */
 @media (min-width: 765px) and (max-width: 1024px) {
@@ -134,8 +175,9 @@ body {
     }
 
     #circle-shape-example .curve {
-        width: 32%;
-    }
+            width: 35%; /* Slightly smaller size for larger screens */
+            max-width: 400px; /* Larger max-width for larger screens */
+        }
 
     #horizontal-line {
         display: none; /* Hide the horizontal line */
@@ -144,4 +186,9 @@ body {
     #verticle-line {
         display: block; /* Show the vertical line */
     }
+    
+    body {
+        background: linear-gradient(270deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%); /* Change gradient direction */
+    }
+    
 }
