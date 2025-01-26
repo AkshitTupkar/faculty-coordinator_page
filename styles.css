@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(270deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%);
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#Faculty-Coordinator {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+}
+
+#verticle-line {
+    border-right: 1px solid white;
+    height: 100%;
+    position: fixed;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+#horizontal-line {
+    display: none;
+    border-top: 1px solid white;
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    z-index: -1;
+}
+
+#circle-shape-example {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+#circle-shape-example .curve {
+    width: 30%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    filter: drop-shadow(0px 0px 64px rgba(32, 16, 54, 0.5));
+}
+
+#textbox {
+    color: rgba(245, 245, 245, 0.892);
+    text-align: left;
+    font-size: 1rem;
+    word-spacing: 3px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Media query for screens 764px and below */
+@media (max-width: 764px) {
+    #textbox {
+        position: static; /* Reset the absolute positioning */
+        max-width: 90%; /* Ensure the text box takes full width */
+        margin-top: 2rem; /* Add space between the image and text box */
+    }
+
+    #circle-shape-example {
+        justify-content: center; /* Center the image */
+        margin-left: 0; /* Reset the left margin */
+    }
+
+    #verticle-line {
+        display: none; /* Hide the vertical line */
+    }
+
+    #horizontal-line {
+        display: block; /* Show the horizontal line */
+        top: calc(15vh + 30vh); /* Position it below the image */
+    }
+
+    body {
+        background: linear-gradient(0deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%); /* Change gradient direction */
+    }
+}
+
+/* Media query for screens between 765px and 1024px */
+@media (min-width: 765px) and (max-width: 1024px) {
+    #textbox {
+        position: static; /* Reset the absolute positioning */
+        max-width: 90%; /* Ensure the text box takes full width */
+        margin-top: 2rem; /* Add space between the image and text box */
+    }
+
+    #circle-shape-example {
+        justify-content: center; /* Center the image */
+        margin-left: 0; /* Reset the left margin */
+    }
+
+    #verticle-line {
+        display: none; /* Hide the vertical line */
+    }
+
+    #horizontal-line {
+        display: block; /* Show the horizontal line */
+        top: calc(15vh + 30vh); /* Position it below the image */
+    }
+
+    body {
+        background: linear-gradient(0deg, rgb(45, 22, 77) 48%, rgb(24, 13, 44) 60%); /* Change gradient direction */
+    }
+}
+
+/* Media query for larger screens (1025px and above) */
+@media (min-width: 1025px) {
+    #Faculty-Coordinator {
+        justify-content: flex-start;
+        padding-left: 16%;
+    }
+
+    #textbox {
+        position: absolute;
+        top: 8%;
+        left: 55%;
+        max-width: 400px;
+    }
+
+    #circle-shape-example {
+        justify-content: flex-start;
+        margin-left: 15%;
+    }
+
+    #circle-shape-example .curve {
+        width: 32%;
+    }
+
+    #horizontal-line {
+        display: none; /* Hide the horizontal line */
+    }
+
+    #verticle-line {
+        display: block; /* Show the vertical line */
+    }
+}
